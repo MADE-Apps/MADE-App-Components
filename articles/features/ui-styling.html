@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Using the UI Styling package | MADE.NET </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Using the UI Styling package | MADE.NET ">
+    <meta name="generator" content="docfx 2.57.2.0">
+    
+    <link rel="shortcut icon" href="../../images/Logo.png">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../images/Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="package-ui-styling">
+<h1 id="using-the-ui-styling-package">Using the UI Styling package</h1>
+
+<p>The UI Styling package is designed for improving the flow of designing native applications for Windows, Android, iOS, macOS, Linux, and the web.</p>
+<h2 id="converting-hex-strings-to-colors-and-solidcolorbrush-with-colorextensions">Converting HEX strings to colors and SolidColorBrush with ColorExtensions</h2>
+<p>The <code>MADE.UI.Styling.Colors.ColorExtensions</code> provides a collection of extensions that can be used to manipulate <code>System.Drawing.Color</code>, <code>Windows.UI.Color</code> or <code>Windows.UI.Xaml.Media.SolidColorBrush</code> objects such as converting a HEX value to them and back.</p>
+<p>Below are some example usages for your applications built for Windows and the Uno Platform.</p>
+<h3 id="convert-hex-string-to-color-and-back-example">Convert HEX String to Color and back example</h3>
+<pre><code class="lang-csharp">private void HexColorConversion()
+{
+    Windows.UI.Color redWindowsColor = &quot;#FF0000&quot;.ToWindowsColor();
+    System.Drawing.Color redSystemColor = &quot;#FF0000&quot;.ToSystemColor();
+
+    string redHex = redColor.ToHexString(); // or redSystemColor.ToHexString();
+}
+</code></pre>
+<p><strong>Note</strong>, the <code>ToColor()</code> extension for HEX strings supported both RGB and ARGB formats, taking into consideration the transparency layer.</p>
+<h3 id="convert-color-to-solidcolorbrush-example">Convert Color to SolidColorBrush example</h3>
+<pre><code class="lang-csharp">private void ColorSolidColorBrushConversion()
+{
+    SolidColorBrush redBrush = Windows.UI.Colors.Red.ToSolidColorBrush(); // or System.Drawing.Color.Red.ToSolidColorBrush();
+}
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MADE-Apps/MADE.NET/blob/main/docs/articles/features/ui-styling.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

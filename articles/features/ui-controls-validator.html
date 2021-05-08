@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Using the InputValidator control | MADE.NET </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Using the InputValidator control | MADE.NET ">
+    <meta name="generator" content="docfx 2.57.2.0">
+    
+    <link rel="shortcut icon" href="../../images/Logo.png">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../images/Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="package-ui-controls-validator">
+<h1 id="using-the-inputvalidator-control">Using the InputValidator control</h1>
+
+<p>The <code>MADE.UI.Controls.InputValidator</code> element is a custom-built UI element wrapper for input controls that works with <a href="https://platform.uno/">Uno's supported platforms</a> that provides an input validation experience.</p>
+<p>Shown below is the visuals for the control in its default state validating a <code>TextBox</code> and <code>DatePicker</code> with input validators from the <code>MADE.NET.Data.Validation</code> library.</p>
+<img src="../../images/InputValidator.png" alt="InputValidator usages for a TextBox and DatePicker">
+<h2 id="example-usage">Example usage</h2>
+<pre><code class="lang-xml">&lt;Page
+    x:Class=&quot;InputValidatorSample.MainPage&quot;
+    xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+    xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+    xmlns:controls=&quot;using:MADE.UI.Controls&quot;
+    xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;
+    xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;
+    Background=&quot;{ThemeResource ApplicationPageBackgroundThemeBrush}&quot;
+    mc:Ignorable=&quot;d&quot;&gt;
+
+    &lt;RelativePanel Padding=&quot;12&quot;&gt;
+        &lt;controls:InputValidator
+            x:Name=&quot;TextBoxValidator&quot;
+            Margin=&quot;0,12,0,0&quot;
+            Input=&quot;{x:Bind TextBox.Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}&quot;
+            RelativePanel.AlignLeftWithPanel=&quot;True&quot;
+            RelativePanel.AlignRightWithPanel=&quot;True&quot;
+            RelativePanel.AlignTopWithPanel=&quot;True&quot;&gt;
+            &lt;TextBox x:Name=&quot;TextBox&quot; Header=&quot;TextBox with InputValidator&quot; /&gt;
+        &lt;/controls:InputValidator&gt;
+
+        &lt;controls:InputValidator
+            x:Name=&quot;DatePickerValidator&quot;
+            Margin=&quot;0,12,0,0&quot;
+            Input=&quot;{Binding SelectedDate, Mode=TwoWay, ElementName=DatePicker, UpdateSourceTrigger=PropertyChanged}&quot;
+            RelativePanel.AlignLeftWithPanel=&quot;True&quot;
+            RelativePanel.AlignRightWithPanel=&quot;True&quot;
+            RelativePanel.Below=&quot;TextBoxValidator&quot;&gt;
+            &lt;DatePicker x:Name=&quot;DatePicker&quot; Header=&quot;DatePicker with InputValidator&quot; /&gt;
+        &lt;/controls:InputValidator&gt;
+    &lt;/RelativePanel&gt;
+&lt;/Page&gt;
+</code></pre>
+<pre><code class="lang-csharp">namespace InputValidatorSample
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.Diagnostics;
+    using global::Windows.UI.Xaml.Controls;
+    using MADE.Data.Validation;
+    using MADE.Data.Validation.Validators;
+    using MADE.UI.Controls;
+
+    public sealed partial class MainPage : Page
+    {
+        public MainPage()
+        {
+            this.InitializeComponent();
+
+            this.TextBoxValidator.Validators = new ValidatorCollection 
+            { 
+                new RequiredValidator(), 
+                new EmailValidator(),
+            };
+
+            this.DatePickerValidator.Validators = new ValidatorCollection
+            {
+                new RequiredValidator(), 
+                new BetweenValidator(DateTimeOffset.Now, DateTimeOffset.Now.AddDays(7)),
+            };
+        }
+    }
+}
+</code></pre>
+<h2 id="validating-an-input">Validating an input</h2>
+<p>The <code>InputValidator</code> is designed in a way that it can be used with any input control, whether in-built like <code>TextBox</code> or custom-built like the MADE <code>FilePicker</code> control.</p>
+<p>Simply, the <code>Input</code> property of the validator needs to be bound to the input value reference from the wrapped input control that needs to be validated.</p>
+<p>You can then provide a <code>ValidatorCollection</code> instance from the <a href="data-validation.html">Data Validation package</a>, containing the <code>IValidator</code> instances that will be run on the input.</p>
+<p>This can either be a bound property in your view-model, set in your view code-behind, or defined in your XAML as a static resource.</p>
+<p>The implementation of using <code>IValidator</code> instances allows you to dynamically configure your validators based on other criteria of your view.</p>
+<p>For example, you might want to validate two <code>DatePicker</code> controls that define a min/max range. The validator for the maximum date could be dynamically updated so that its minimum value is defined based on the value of the minimum date picker.</p>
+<h2 id="extending-input-validation-for-your-applications-needs">Extending input validation for your application's needs</h2>
+<p>The validation of the <code>InputValidator</code> is based on <code>IValidator</code> instances from the Data Validation package.</p>
+<p>While the package provides a common set of validators for basic scenarios such as required, range, min, max, and email, you can create your own.</p>
+<p>Find more detail on creating your own custom <code>IValidator</code> types in our <a href="data-validation.html#creating-your-own-custom-data-validators">Data Validation article</a>.</p>
+<h2 id="customizing-the-inputvalidator">Customizing the InputValidator</h2>
+<p>The control has many customization properties that are exposed to tailor the experience for your application.</p>
+<h3 id="feedbackmessagestyle">FeedbackMessageStyle</h3>
+<p>The <code>FeedbackMessageStyle</code> controls the styling applied to the <code>TextBlock</code> that displays the validator messages.</p>
+<p>The default user experience styling is shown at the top of this article.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MADE-Apps/MADE.NET/blob/main/docs/articles/features/ui-controls-validator.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

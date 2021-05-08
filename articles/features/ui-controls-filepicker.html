@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Using the FilePicker control | MADE.NET </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Using the FilePicker control | MADE.NET ">
+    <meta name="generator" content="docfx 2.57.2.0">
+    
+    <link rel="shortcut icon" href="../../images/Logo.png">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../images/Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="package-ui-controls-filepicker">
+<h1 id="using-the-filepicker-control">Using the FilePicker control</h1>
+
+<p>The <code>MADE.UI.Controls.FilePicker</code> element is a custom-built UI element that works with <a href="https://platform.uno/">Uno's supported platforms</a> that provides a file selection user experience.</p>
+<p>The control works in a similar way to the <code>&lt;input type=&quot;file&quot; /&gt;</code> element in web applications.</p>
+<p>Shown below is the visuals for the control in its default state, in a multiple selection mode.</p>
+<img src="../../images/FilePicker.png" alt="FilePicker with chosen files">
+<h2 id="example-usage">Example usage</h2>
+<pre><code class="lang-xml">&lt;Page
+    x:Class=&quot;FilePickerSample.MainPage&quot;
+    xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+    xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+    xmlns:controls=&quot;using:MADE.UI.Controls&quot;
+    xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;
+    xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;
+    Background=&quot;{ThemeResource ApplicationPageBackgroundThemeBrush}&quot;
+    mc:Ignorable=&quot;d&quot;&gt;
+
+    &lt;RelativePanel Padding=&quot;12&quot;&gt;
+        &lt;controls:FilePicker
+            x:Name=&quot;FilePickerControl&quot;
+            Margin=&quot;0,12,0,0&quot;
+            AppendFiles=&quot;True&quot;
+            Files=&quot;{x:Bind FilePickerFiles}&quot;
+            Header=&quot;FilePicker&quot;
+            RelativePanel.AlignLeftWithPanel=&quot;True&quot;
+            RelativePanel.AlignRightWithPanel=&quot;True&quot;
+            RelativePanel.AlignTopWithPanel=&quot;True&quot;
+            SelectionMode=&quot;Multiple&quot; /&gt;
+    &lt;/RelativePanel&gt;
+&lt;/Page&gt;
+</code></pre>
+<h2 id="retrieving-selected-files">Retrieving selected files</h2>
+<p>The control exposes the selected files through the <code>Files</code> list property.</p>
+<p>The type of objects contained in this collection will be <code>FilePickerItem</code> which contains the details for the file including:</p>
+<ul>
+<li>The file as a <code>StorageFile</code></li>
+<li>The thumbnail as a <code>BitmapImage</code></li>
+<li>The file name including the extension</li>
+<li>The display name</li>
+<li>The file type</li>
+<li>The file path</li>
+</ul>
+<h2 id="customizing-the-filepicker">Customizing the FilePicker</h2>
+<p>The control has many customization properties that are exposed to tailor the experience for your application.</p>
+<h3 id="headertemplate">HeaderTemplate</h3>
+<p>The <code>Header</code> can be customized to include custom UI elements as well as a string resource.</p>
+<p>The <code>HeaderTemplate</code> is also available to provide a <code>DataTemplate</code> for you to define the rendered UI for the <code>Header</code>.</p>
+<h3 id="choosefilebuttoncontent-and-choosefilebuttoncontenttemplate">ChooseFileButtonContent and ChooseFileButtonContentTemplate</h3>
+<p>The <code>ChooseFileButtonContent</code> can be used to set the UI elements or string resource displayed on the button.</p>
+<p>The rendered UI elements for the button content in the control can also be customized with the <code>ChooseFileButtonContentTemplate</code>.</p>
+<h3 id="selectionmode">SelectionMode</h3>
+<p>The <code>FilePicker</code> has two selection modes, <code>Single</code> and <code>Multiple</code>.</p>
+<p>By default, the control works in a <code>Single</code> selection mode.</p>
+<h3 id="filetypes">FileTypes</h3>
+<p>When the user selects the button to choose files, you can customize what files can be selected using a list of file extensions with the <code>FileTypes</code> property.</p>
+<p>By default, the control will allow any file to be selected using the <code>*</code> selector.</p>
+<h3 id="appendfiles">AppendFiles</h3>
+<p>If multiple selection is enabled, the <code>AppendFiles</code> boolean flag will allow your user to append additional files to the existing selections if they choose to add more files.</p>
+<p>By default, this is <code>false</code> which will overwrite the files chosen on subsequent additions.</p>
+<h3 id="itemsviewstyle">ItemsViewStyle</h3>
+<p>The <code>ItemsViewStyle</code> controls the styling applied to the view which displays the selected items.</p>
+<p>The default user experience styling is shown at the top of this article.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MADE-Apps/MADE.NET/blob/main/docs/articles/features/ui-controls-filepicker.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

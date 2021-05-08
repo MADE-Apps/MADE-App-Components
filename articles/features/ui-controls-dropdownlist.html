@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Using the DropDownList control | MADE.NET </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Using the DropDownList control | MADE.NET ">
+    <meta name="generator" content="docfx 2.57.2.0">
+    
+    <link rel="shortcut icon" href="../../images/Logo.png">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../images/Logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="package-ui-controls-dropdownlist">
+<h1 id="using-the-dropdownlist-control">Using the DropDownList control</h1>
+
+<p>The <code>MADE.UI.Controls.DropDownList</code> element is a custom-built UI element for Windows (UWP) applications that provides a selection user experience, allowing a user to select one or multiple items from a list.</p>
+<p>The control works in a similar way to the <code>ComboBox</code> element in the Windows SDK, with the added extensibility to change modes to select multiple items.</p>
+<p>Shown below is the visuals for the control in its default state, in a multiple selection mode.</p>
+<img src="../../images/MultiSelectDropDownListCollapsed.png" alt="DropDownList control showing multiple selected items">
+<img src="../../images/MultiSelectDropDownListExpanded.png" alt="DropDownList control showing expanded selection with selected items">
+<h2 id="example-usage">Example usage</h2>
+<pre><code class="lang-xml">&lt;Page
+    x:Class=&quot;DropDownListSample.MainPage&quot;
+    xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+    xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+    xmlns:controls=&quot;using:MADE.UI.Controls&quot;
+    xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;
+    xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;
+    Background=&quot;{ThemeResource ApplicationPageBackgroundThemeBrush}&quot;
+    mc:Ignorable=&quot;d&quot;&gt;
+
+    &lt;RelativePanel Padding=&quot;12&quot;&gt;
+        &lt;controls:DropDownList
+            x:Name=&quot;DropDownList&quot;
+            Header=&quot;MultiDropDownList&quot;
+            ItemsSource=&quot;{x:Bind ViewModel.ItemCollection}&quot;
+            RelativePanel.AlignLeftWithPanel=&quot;True&quot;
+            RelativePanel.AlignRightWithPanel=&quot;True&quot;
+            RelativePanel.AlignTopWithPanel=&quot;True&quot;
+            SelectionMode=&quot;Multiple&quot; /&gt;
+    &lt;/RelativePanel&gt;
+&lt;/Page&gt;
+</code></pre>
+<h2 id="customizing-the-dropdownlist">Customizing the DropDownList</h2>
+<p>The control has many customization properties that are exposed to tailor the experience for your application.</p>
+<h3 id="headertemplate">HeaderTemplate</h3>
+<p>The <code>Header</code> can be customized to include custom UI elements as well as a string resource.</p>
+<p>The <code>HeaderTemplate</code> is also available to provide a <code>DataTemplate</code> for you to define the rendered UI for the <code>Header</code>.</p>
+<h3 id="itemtemplate-and-itemtemplateselector">ItemTemplate and ItemTemplateSelector</h3>
+<p>The rendered UI elements for the items in the control can be customized with the <code>ItemTemplate</code> or <code>ItemTemplateSelector</code>.</p>
+<h3 id="selectionmode">SelectionMode</h3>
+<p>The <code>DropDownList</code> has two selection modes, <code>Single</code> and <code>Multiple</code>.</p>
+<p>By default, the control works in a <code>Single</code> selection mode.</p>
+<h3 id="maxdropdownheight">MaxDropDownHeight</h3>
+<p>The height of the drop-down can be customized to allow you to show more results that the default expanded view.</p>
+<p>By default, the drop down will expand to 248 pixels.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MADE-Apps/MADE.NET/blob/main/docs/articles/features/ui-controls-dropdownlist.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

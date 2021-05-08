@@ -1,0 +1,63 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: available-packages
+  name: Available packages | MADE.NET
+  href: articles/available-packages.html
+- uid: front-page
+  name: MADE.NET Documentation
+  href: index.html
+- uid: made-intro
+  name: Overview | MADE.NET
+  href: articles/intro.html
+- uid: package-collections
+  name: Using the Collections package | MADE.NET
+  href: articles/features/collections.html
+- uid: package-data-converters
+  name: Using the Data Converters package | MADE.NET
+  href: articles/features/data-converters.html
+- uid: package-data-validation
+  name: Using the Data Validation package | MADE.NET
+  href: articles/features/data-validation.html
+- uid: package-diagnostics
+  name: Using the Diagnostics package | MADE.NET
+  href: articles/features/diagnostics.html
+- uid: package-media-image
+  name: Using the Media Image package | MADE.NET
+  href: articles/features/media-image.html
+- uid: package-networking
+  name: Using the Networking package | MADE.NET
+  href: articles/features/networking.html
+- uid: package-runtime
+  name: Using the Runtime package | MADE.NET
+  href: articles/features/runtime.html
+- uid: package-testing
+  name: Using the Testing package | MADE.NET
+  href: articles/features/testing.html
+- uid: package-threading
+  name: Using the Threading package | MADE.NET
+  href: articles/features/threading.html
+- uid: package-ui
+  name: Using the UI package | MADE.NET
+  href: articles/features/ui.html
+- uid: package-ui-controls-dropdownlist
+  name: Using the DropDownList control | MADE.NET
+  href: articles/features/ui-controls-dropdownlist.html
+- uid: package-ui-controls-filepicker
+  name: Using the FilePicker control | MADE.NET
+  href: articles/features/ui-controls-filepicker.html
+- uid: package-ui-controls-validator
+  name: Using the InputValidator control | MADE.NET
+  href: articles/features/ui-controls-validator.html
+- uid: package-ui-styling
+  name: Using the UI Styling package | MADE.NET
+  href: articles/features/ui-styling.html
+- uid: package-ui-view-management
+  name: Using the UI View Management package | MADE.NET
+  href: articles/features/ui-view-management.html
+- uid: package-web
+  name: Using the Web package | MADE.NET
+  href: articles/features/web.html
+- uid: package-web-mvc
+  name: Using the Web MVC package | MADE.NET
+  href: articles/features/web-mvc.html
